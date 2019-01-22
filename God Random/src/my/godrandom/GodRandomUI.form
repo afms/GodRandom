@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="God Random"/>
@@ -137,12 +137,18 @@
                   <Properties>
                     <Property name="toolTipText" type="java.lang.String" value="Write the item here and press the &quot;Add item&quot; button to add this item to the list of items."/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldItemToAddActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="jButtonAddItem">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Add"/>
                     <Property name="toolTipText" type="java.lang.String" value="Adds the item to the list of items."/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddItemActionPerformed"/>
+                  </Events>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPaneListOfItemsSimple">
                   <AuxValues>
@@ -153,8 +159,8 @@
                   <SubComponents>
                     <Component class="javax.swing.JList" name="jListOfItemsSimple">
                       <Properties>
-                        <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                          <StringArray count="0"/>
+                        <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                          <Connection code="modelSimple = new DefaultListModel()" type="code"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -167,14 +173,19 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Delete"/>
                     <Property name="toolTipText" type="java.lang.String" value="Removes the item selected from the list."/>
-                    <Property name="actionCommand" type="java.lang.String" value="Delete"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDeleteSimpleActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="jButtonClearSimple">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Clear"/>
                     <Property name="toolTipText" type="java.lang.String" value="Removes all items from the list."/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonClearSimpleActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -219,6 +230,9 @@
                     <Property name="text" type="java.lang.String" value="Start"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRandomSimpleActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldSimpleSelection">
                   <Properties>
@@ -495,9 +509,6 @@
                     <Property name="text" type="java.lang.String" value="Add"/>
                     <Property name="toolTipText" type="java.lang.String" value="Adds the item to the list of items of selected category."/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddItemMultipleActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldItemToAddMultiple">
                   <Properties>

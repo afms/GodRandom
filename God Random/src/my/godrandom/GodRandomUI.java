@@ -5,6 +5,10 @@
  */
 package my.godrandom;
 
+import java.util.Random;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+
 /**
  *
  * @author andresilva
@@ -69,18 +73,38 @@ public class GodRandomUI extends javax.swing.JFrame {
         jPanelAddingItems.setToolTipText("");
 
         jTextFieldItemToAdd.setToolTipText("Write the item here and press the \"Add item\" button to add this item to the list of items.");
+        jTextFieldItemToAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldItemToAddActionPerformed(evt);
+            }
+        });
 
         jButtonAddItem.setText("Add");
         jButtonAddItem.setToolTipText("Adds the item to the list of items.");
+        jButtonAddItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddItemActionPerformed(evt);
+            }
+        });
 
+        jListOfItemsSimple.setModel(modelSimple = new DefaultListModel());
         jScrollPaneListOfItemsSimple.setViewportView(jListOfItemsSimple);
 
         jButtonDeleteSimple.setText("Delete");
         jButtonDeleteSimple.setToolTipText("Removes the item selected from the list.");
-        jButtonDeleteSimple.setActionCommand("Delete");
+        jButtonDeleteSimple.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteSimpleActionPerformed(evt);
+            }
+        });
 
         jButtonClearSimple.setText("Clear");
         jButtonClearSimple.setToolTipText("Removes all items from the list.");
+        jButtonClearSimple.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClearSimpleActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelAddingItemsLayout = new javax.swing.GroupLayout(jPanelAddingItems);
         jPanelAddingItems.setLayout(jPanelAddingItemsLayout);
@@ -122,6 +146,11 @@ public class GodRandomUI extends javax.swing.JFrame {
 
         jButtonRandomSimple.setText("Start");
         jButtonRandomSimple.setToolTipText("");
+        jButtonRandomSimple.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRandomSimpleActionPerformed(evt);
+            }
+        });
 
         jTextFieldSimpleSelection.setToolTipText("The item that was randomly withdrawn.");
 
@@ -247,11 +276,6 @@ public class GodRandomUI extends javax.swing.JFrame {
 
         jButtonAddItemMultiple.setText("Add");
         jButtonAddItemMultiple.setToolTipText("Adds the item to the list of items of selected category.");
-        jButtonAddItemMultiple.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAddItemMultipleActionPerformed(evt);
-            }
-        });
 
         jTextFieldItemToAddMultiple.setToolTipText("Write the item here and press the \"Add item\" button to add this item to the list of items.");
 
@@ -343,10 +367,64 @@ public class GodRandomUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonAddItemMultipleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddItemMultipleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonAddItemMultipleActionPerformed
+    private void jButtonAddItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddItemActionPerformed
+        addItems(jTextFieldItemToAdd);
+    }//GEN-LAST:event_jButtonAddItemActionPerformed
 
+    private void jButtonDeleteSimpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteSimpleActionPerformed
+        int[] positions = jListOfItemsSimple.getSelectedIndices();
+        int posLength;
+        
+        if ((posLength = positions.length) > 0) {
+            for (int i=posLength-1; i>=0; i--) {
+                modelSimple.remove(positions[i]);
+            }
+        }
+    }//GEN-LAST:event_jButtonDeleteSimpleActionPerformed
+
+    private void jButtonClearSimpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearSimpleActionPerformed
+        modelSimple.removeAllElements();
+    }//GEN-LAST:event_jButtonClearSimpleActionPerformed
+
+    private void jButtonRandomSimpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRandomSimpleActionPerformed
+        //String[] res = new String[1];
+        //res = 
+        jTextFieldSimpleSelection.setText(runGodRandom(modelSimple, true)[0]);
+    }//GEN-LAST:event_jButtonRandomSimpleActionPerformed
+
+    private void jTextFieldItemToAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldItemToAddActionPerformed
+        addItems(jTextFieldItemToAdd);
+    }//GEN-LAST:event_jTextFieldItemToAddActionPerformed
+    
+    private void addItems(javax.swing.JTextField component) {
+        String item = component.getText();
+        
+        modelSimple.addElement(item);
+        jTextFieldItemToAdd.setText("");
+    }
+    
+    private String[] runGodRandom(DefaultListModel model, boolean simple) {
+        String[] items = new String[model.getSize()];
+        
+        for (int i=0; i<model.getSize(); i++) {
+            items[i] = (String) model.get(i);
+        }
+        
+        return selectRandomly(items, simple);
+    }
+    
+    private String[] selectRandomly(String[] list, boolean simple) {
+        Random random = new Random();
+        
+        if (simple) { 
+            String[] res = {list[random.nextInt(list.length)]}; 
+            
+            return res; 
+        }
+        
+        return null;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -382,6 +460,7 @@ public class GodRandomUI extends javax.swing.JFrame {
         });
     }
 
+    private DefaultListModel modelSimple;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAddCategory;
     private javax.swing.JButton jButtonAddItem;
