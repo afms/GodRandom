@@ -343,6 +343,7 @@
                 <Component class="javax.swing.JTextField" name="jTextFieldCategoryToAdd">
                   <Properties>
                     <Property name="toolTipText" type="java.lang.String" value="Write the category here and press the &quot;Add category&quot; button to add this category to the list of categories."/>
+                    <Property name="name" type="java.lang.String" value="jTextFieldCategoryToAdd" noResource="true"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCategoryToAddActionPerformed"/>
@@ -388,6 +389,7 @@
                           <Connection code="modelMultipleCategory = new DefaultListModel()" type="code"/>
                         </Property>
                         <Property name="toolTipText" type="java.lang.String" value="List with all categories added by now."/>
+                        <Property name="name" type="java.lang.String" value="jListOfCategories" noResource="true"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -592,12 +594,20 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Add"/>
                     <Property name="toolTipText" type="java.lang.String" value="Adds the item to the list of items of selected category."/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddItemMultipleActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldItemToAddMultiple">
                   <Properties>
                     <Property name="toolTipText" type="java.lang.String" value="Write the item here and press the &quot;Add item&quot; button to add this item to the list of items."/>
+                    <Property name="name" type="java.lang.String" value="jTextFieldItemToAddMultiple" noResource="true"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldItemToAddMultipleActionPerformed"/>
+                  </Events>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPaneItemsMultiple">
                   <AuxValues>
@@ -612,6 +622,7 @@
                           <Connection code="modelMultipleItem = new DefaultListModel()" type="code"/>
                         </Property>
                         <Property name="toolTipText" type="java.lang.String" value="List with all items added by now."/>
+                        <Property name="name" type="java.lang.String" value="jListOfItemsMultiple" noResource="true"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -633,11 +644,15 @@
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBoxCategories">
                   <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="0"/>
+                    <Property name="maximumRowCount" type="int" value="20"/>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="modelCombo = new DefaultComboBoxModel()" type="code"/>
                     </Property>
                     <Property name="toolTipText" type="java.lang.String" value="Select a category where the "/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxCategoriesActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
