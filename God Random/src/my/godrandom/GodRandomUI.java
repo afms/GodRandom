@@ -55,6 +55,10 @@ public class GodRandomUI extends javax.swing.JFrame {
         jButtonStartMultiple = new javax.swing.JButton();
         jScrollPaneResultsMultiple = new javax.swing.JScrollPane();
         jListOfItemsSelectedMultiple = new javax.swing.JList<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jListCategoriesOrder = new javax.swing.JList<>();
+        jLabelCategoriesOrder = new javax.swing.JLabel();
+        jLabelItemsSelectedMultiple = new javax.swing.JLabel();
         jPanelItemsMultiple = new javax.swing.JPanel();
         jButtonAddItemMultiple = new javax.swing.JButton();
         jTextFieldItemToAddMultiple = new javax.swing.JTextField();
@@ -198,16 +202,37 @@ public class GodRandomUI extends javax.swing.JFrame {
         jPanelCategoryMultiple.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Categories", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Grande", 1, 13))); // NOI18N
 
         jTextFieldCategoryToAdd.setToolTipText("Write the category here and press the \"Add category\" button to add this category to the list of categories.");
+        jTextFieldCategoryToAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCategoryToAddActionPerformed(evt);
+            }
+        });
 
         jButtonAddCategory.setText("Add");
         jButtonAddCategory.setToolTipText("Adds the category to the list of categories.");
+        jButtonAddCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddCategoryActionPerformed(evt);
+            }
+        });
 
         jButtonDeleteCategory.setText("Delete");
         jButtonDeleteCategory.setToolTipText("Removes the category selected from the list.");
+        jButtonDeleteCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteCategoryActionPerformed(evt);
+            }
+        });
 
         jButtonClearCategories.setText("Clear");
         jButtonClearCategories.setToolTipText("Removes all categories from the list.");
+        jButtonClearCategories.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClearCategoriesActionPerformed(evt);
+            }
+        });
 
+        jListOfCategories.setModel(modelMultipleCategory = new DefaultListModel());
         jListOfCategories.setToolTipText("List with all categories added by now.");
         jScrollPaneCategories.setViewportView(jListOfCategories);
 
@@ -249,9 +274,27 @@ public class GodRandomUI extends javax.swing.JFrame {
         jPanelRandomSelectionMultiple.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Random Selection", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Grande", 1, 13))); // NOI18N
 
         jButtonStartMultiple.setText("Start");
+        jButtonStartMultiple.setToolTipText("<html>For multiple items selection the run of God Random  is split in two parts:\n    <ul>\n        <li>the first one serves to obtain the order of the categories;</li>\n        <li>the second part will select (randomly) an item from every category,<br>respecting the order obtained from the previous running.</li>\n    </ul>\n</html>");
 
-        jListOfItemsSelectedMultiple.setToolTipText("List with all items that was randomly withdrawn.");
+        jListOfItemsSelectedMultiple.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jListOfItemsSelectedMultiple.setToolTipText("Final list with all items that was randomly withdrawn (each item corresponds to a category).");
+        jListOfItemsSelectedMultiple.setSelectionModel(new DisabledItemSelectionModel());
         jScrollPaneResultsMultiple.setViewportView(jListOfItemsSelectedMultiple);
+
+        jListCategoriesOrder.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jListCategoriesOrder.setToolTipText("<html>\nList with all ordered categories for next step, which it consists to run the God Random<br>for every category to select an item from it and add to the final items list.");
+        jListCategoriesOrder.setSelectionModel(new DisabledItemSelectionModel());
+        jScrollPane1.setViewportView(jListCategoriesOrder);
+
+        jLabelCategoriesOrder.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        jLabelCategoriesOrder.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelCategoriesOrder.setLabelFor(jListCategoriesOrder);
+        jLabelCategoriesOrder.setText("Order of the categories");
+
+        jLabelItemsSelectedMultiple.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        jLabelItemsSelectedMultiple.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelItemsSelectedMultiple.setLabelFor(jListOfItemsSelectedMultiple);
+        jLabelItemsSelectedMultiple.setText("Final list");
 
         javax.swing.GroupLayout jPanelRandomSelectionMultipleLayout = new javax.swing.GroupLayout(jPanelRandomSelectionMultiple);
         jPanelRandomSelectionMultiple.setLayout(jPanelRandomSelectionMultipleLayout);
@@ -260,16 +303,31 @@ public class GodRandomUI extends javax.swing.JFrame {
             .addGroup(jPanelRandomSelectionMultipleLayout.createSequentialGroup()
                 .addComponent(jButtonStartMultiple)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPaneResultsMultiple, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(jPanelRandomSelectionMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jLabelCategoriesOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelRandomSelectionMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPaneResultsMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                    .addComponent(jLabelItemsSelectedMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanelRandomSelectionMultipleLayout.setVerticalGroup(
             jPanelRandomSelectionMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelRandomSelectionMultipleLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButtonStartMultiple)
-                .addContainerGap(65, Short.MAX_VALUE))
-            .addComponent(jScrollPaneResultsMultiple, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGroup(jPanelRandomSelectionMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelRandomSelectionMultipleLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanelRandomSelectionMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonStartMultiple)
+                            .addComponent(jLabelCategoriesOrder)
+                            .addComponent(jLabelItemsSelectedMultiple)))
+                    .addGroup(jPanelRandomSelectionMultipleLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(jPanelRandomSelectionMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPaneResultsMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanelItemsMultiple.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Items", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Grande", 1, 13))); // NOI18N
@@ -279,6 +337,7 @@ public class GodRandomUI extends javax.swing.JFrame {
 
         jTextFieldItemToAddMultiple.setToolTipText("Write the item here and press the \"Add item\" button to add this item to the list of items.");
 
+        jListOfItemsMultiple.setModel(modelMultipleItem = new DefaultListModel());
         jListOfItemsMultiple.setToolTipText("List with all items added by now.");
         jScrollPaneItemsMultiple.setViewportView(jListOfItemsMultiple);
 
@@ -365,21 +424,15 @@ public class GodRandomUI extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAddItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddItemActionPerformed
-        addItems(jTextFieldItemToAdd);
+        addItems(jTextFieldItemToAdd, modelSimple);
     }//GEN-LAST:event_jButtonAddItemActionPerformed
 
     private void jButtonDeleteSimpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteSimpleActionPerformed
-        int[] positions = jListOfItemsSimple.getSelectedIndices();
-        int posLength;
-        
-        if ((posLength = positions.length) > 0) {
-            for (int i=posLength-1; i>=0; i--) {
-                modelSimple.remove(positions[i]);
-            }
-        }
+        removeItems(jListOfItemsSimple, modelSimple);
     }//GEN-LAST:event_jButtonDeleteSimpleActionPerformed
 
     private void jButtonClearSimpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearSimpleActionPerformed
@@ -387,36 +440,61 @@ public class GodRandomUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonClearSimpleActionPerformed
 
     private void jButtonRandomSimpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRandomSimpleActionPerformed
-        //String[] res = new String[1];
-        //res = 
         jTextFieldSimpleSelection.setText(runGodRandom(modelSimple, true)[0]);
     }//GEN-LAST:event_jButtonRandomSimpleActionPerformed
 
     private void jTextFieldItemToAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldItemToAddActionPerformed
-        addItems(jTextFieldItemToAdd);
+        addItems(jTextFieldItemToAdd, modelSimple);
     }//GEN-LAST:event_jTextFieldItemToAddActionPerformed
+
+    private void jTextFieldCategoryToAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCategoryToAddActionPerformed
+        addItems(jTextFieldCategoryToAdd, modelMultipleCategory);
+    }//GEN-LAST:event_jTextFieldCategoryToAddActionPerformed
+
+    private void jButtonAddCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddCategoryActionPerformed
+        addItems(jTextFieldCategoryToAdd, modelMultipleCategory);
+    }//GEN-LAST:event_jButtonAddCategoryActionPerformed
+
+    private void jButtonDeleteCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteCategoryActionPerformed
+        removeItems(jListOfCategories, modelMultipleCategory);
+    }//GEN-LAST:event_jButtonDeleteCategoryActionPerformed
+
+    private void jButtonClearCategoriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearCategoriesActionPerformed
+        modelMultipleCategory.removeAllElements();
+    }//GEN-LAST:event_jButtonClearCategoriesActionPerformed
     
-    private void addItems(javax.swing.JTextField component) {
+    private void addItems(javax.swing.JTextField component, DefaultListModel model) {
         String item = component.getText();
         
-        modelSimple.addElement(item);
-        jTextFieldItemToAdd.setText("");
+        model.addElement(item);
+        component.setText("");
     }
     
-    private String[] runGodRandom(DefaultListModel model, boolean simple) {
+    private void removeItems(JList list, DefaultListModel model) {
+        int[] positions = list.getSelectedIndices();
+        int posLength;
+        
+        if ((posLength = positions.length) > 0) {
+            for (int i=posLength-1; i>=0; i--) {
+                model.remove(positions[i]);
+            }
+        }
+    }
+    
+    private String[] runGodRandom(DefaultListModel model, boolean isSimple) {
         String[] items = new String[model.getSize()];
         
         for (int i=0; i<model.getSize(); i++) {
             items[i] = (String) model.get(i);
         }
         
-        return selectRandomly(items, simple);
+        return selectRandomly(items, isSimple);
     }
     
-    private String[] selectRandomly(String[] list, boolean simple) {
+    private String[] selectRandomly(String[] list, boolean isSimple) {
         Random random = new Random();
         
-        if (simple) { 
+        if (isSimple) { 
             String[] res = {list[random.nextInt(list.length)]}; 
             
             return res; 
@@ -461,6 +539,8 @@ public class GodRandomUI extends javax.swing.JFrame {
     }
 
     private DefaultListModel modelSimple;
+    private DefaultListModel modelMultipleCategory;
+    private DefaultListModel modelMultipleItem;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAddCategory;
     private javax.swing.JButton jButtonAddItem;
@@ -474,6 +554,9 @@ public class GodRandomUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRandomSimple;
     private javax.swing.JButton jButtonStartMultiple;
     private javax.swing.JComboBox<String> jComboBoxCategories;
+    private javax.swing.JLabel jLabelCategoriesOrder;
+    private javax.swing.JLabel jLabelItemsSelectedMultiple;
+    private javax.swing.JList<String> jListCategoriesOrder;
     private javax.swing.JList<String> jListOfCategories;
     private javax.swing.JList<String> jListOfItemsMultiple;
     private javax.swing.JList<String> jListOfItemsSelectedMultiple;
@@ -485,6 +568,7 @@ public class GodRandomUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelRandomSelectionMultiple;
     private javax.swing.JPanel jPanelRandomSelectionSimple;
     private javax.swing.JPanel jPanelSimple;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPaneCategories;
     private javax.swing.JScrollPane jScrollPaneItemsMultiple;
     private javax.swing.JScrollPane jScrollPaneListOfItemsSimple;
