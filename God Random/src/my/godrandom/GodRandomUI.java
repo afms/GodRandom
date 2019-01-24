@@ -84,9 +84,10 @@ public class GodRandomUI extends javax.swing.JFrame {
         setTitle("God Random");
 
         jTabbedPaneGodRandom.setToolTipText("Tab for the option 'Simple'.");
+        jTabbedPaneGodRandom.setPreferredSize(new java.awt.Dimension(900, 450));
 
         jPanelAddingItems.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Adding Items", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Grande", 1, 13))); // NOI18N
-        jPanelAddingItems.setToolTipText("");
+        jPanelAddingItems.setToolTipText("Add items to the list here.");
 
         jTextFieldItemToAdd.setToolTipText("Write the item here and press the \"Add item\" button to add this item to the list of items.");
         jTextFieldItemToAdd.setName("jTextFieldItemToAdd"); // NOI18N
@@ -132,17 +133,14 @@ public class GodRandomUI extends javax.swing.JFrame {
             .addGroup(jPanelAddingItemsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelAddingItemsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanelAddingItemsLayout.createSequentialGroup()
-                        .addComponent(jTextFieldItemToAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonAddItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanelAddingItemsLayout.createSequentialGroup()
-                        .addComponent(jScrollPaneListOfItemsSimple, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelAddingItemsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonClearSimple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonDeleteSimple, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))))
-                .addContainerGap(279, Short.MAX_VALUE))
+                    .addComponent(jTextFieldItemToAdd)
+                    .addComponent(jScrollPaneListOfItemsSimple, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelAddingItemsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButtonDeleteSimple, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                    .addComponent(jButtonAddItem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonClearSimple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelAddingItemsLayout.setVerticalGroup(
             jPanelAddingItemsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,6 +160,7 @@ public class GodRandomUI extends javax.swing.JFrame {
         );
 
         jPanelRandomSelectionSimple.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Random Selection", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Grande", 1, 13))); // NOI18N
+        jPanelRandomSelectionSimple.setToolTipText("Click in 'Start' to get a random item.");
 
         jButtonRandomSimple.setText("Start");
         jButtonRandomSimple.setToolTipText("");
@@ -182,7 +181,7 @@ public class GodRandomUI extends javax.swing.JFrame {
                 .addComponent(jButtonRandomSimple)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldSimpleSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(474, Short.MAX_VALUE))
         );
         jPanelRandomSelectionSimpleLayout.setVerticalGroup(
             jPanelRandomSelectionSimpleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,10 +196,10 @@ public class GodRandomUI extends javax.swing.JFrame {
         jPanelSimple.setLayout(jPanelSimpleLayout);
         jPanelSimpleLayout.setHorizontalGroup(
             jPanelSimpleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSimpleLayout.createSequentialGroup()
-                .addGroup(jPanelSimpleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanelRandomSelectionSimple, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelAddingItems, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanelSimpleLayout.createSequentialGroup()
+                .addGroup(jPanelSimpleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelAddingItems, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelRandomSelectionSimple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelSimpleLayout.setVerticalGroup(
@@ -209,12 +208,13 @@ public class GodRandomUI extends javax.swing.JFrame {
                 .addComponent(jPanelAddingItems, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelRandomSelectionSimple, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         jTabbedPaneGodRandom.addTab("Simple", jPanelSimple);
 
         jPanelCategoryMultiple.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Categories", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Grande", 1, 13))); // NOI18N
+        jPanelCategoryMultiple.setToolTipText("Add categories to the list here.");
 
         jTextFieldCategoryToAdd.setToolTipText("Write the category here and press the \"Add category\" button to add this category to the list of categories.");
         jTextFieldCategoryToAdd.setName("jTextFieldCategoryToAdd"); // NOI18N
@@ -259,18 +259,14 @@ public class GodRandomUI extends javax.swing.JFrame {
             jPanelCategoryMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCategoryMultipleLayout.createSequentialGroup()
                 .addGroup(jPanelCategoryMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextFieldCategoryToAdd)
-                    .addComponent(jScrollPaneCategories, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
+                    .addComponent(jScrollPaneCategories, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                    .addComponent(jTextFieldCategoryToAdd))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelCategoryMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelCategoryMultipleLayout.createSequentialGroup()
-                        .addComponent(jButtonDeleteCategory)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(jPanelCategoryMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButtonAddCategory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCategoryMultipleLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButtonClearCategories, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                    .addComponent(jButtonDeleteCategory, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                    .addComponent(jButtonClearCategories, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelCategoryMultipleLayout.setVerticalGroup(
             jPanelCategoryMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,6 +285,7 @@ public class GodRandomUI extends javax.swing.JFrame {
         );
 
         jPanelRandomSelectionMultiple.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Random Selection", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Grande", 1, 13))); // NOI18N
+        jPanelRandomSelectionMultiple.setToolTipText("Click in 'Start' to get a random list of items.");
 
         jButtonStartMultiple.setText("Start");
         jButtonStartMultiple.setToolTipText("<html>For multiple items selection the run of God Random  is split in two parts:\n    <ul>\n        <li>the first one serves to obtain the order of the categories;</li>\n        <li>the second part will select (randomly) an item from every category,<br>respecting the order obtained from the previous running.</li>\n    </ul>\n</html>");
@@ -331,29 +328,27 @@ public class GodRandomUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelRandomSelectionMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelItemsSelectedMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPaneResultsMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE))
+                    .addComponent(jScrollPaneResultsMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelRandomSelectionMultipleLayout.setVerticalGroup(
             jPanelRandomSelectionMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelRandomSelectionMultipleLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelRandomSelectionMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelCategoriesOrder)
+                    .addComponent(jLabelItemsSelectedMultiple)))
+            .addGroup(jPanelRandomSelectionMultipleLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
                 .addGroup(jPanelRandomSelectionMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelRandomSelectionMultipleLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanelRandomSelectionMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelCategoriesOrder)
-                            .addComponent(jLabelItemsSelectedMultiple)))
-                    .addGroup(jPanelRandomSelectionMultipleLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(jPanelRandomSelectionMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonStartMultiple)
-                            .addGroup(jPanelRandomSelectionMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPaneResultsMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonStartMultiple)
+                    .addGroup(jPanelRandomSelectionMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPaneResultsMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
         );
 
         jPanelItemsMultiple.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Items", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Grande", 1, 13))); // NOI18N
+        jPanelItemsMultiple.setToolTipText("Add items to the categories here.");
 
         jButtonAddItemMultiple.setText("Add");
         jButtonAddItemMultiple.setToolTipText("Adds the item to the list of items of selected category.");
@@ -416,23 +411,20 @@ public class GodRandomUI extends javax.swing.JFrame {
         jPanelItemsMultiple.setLayout(jPanelItemsMultipleLayout);
         jPanelItemsMultipleLayout.setHorizontalGroup(
             jPanelItemsMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelItemsMultipleLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelItemsMultipleLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelItemsMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelItemsMultipleLayout.createSequentialGroup()
-                        .addGroup(jPanelItemsMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBoxCategories, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPaneItemsMultiple, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelItemsMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonClearItemsCategoryMultiple, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonClearAllMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonDeleteItemMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonAddItemMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(34, 34, 34))
+                    .addComponent(jScrollPaneItemsMultiple, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(jPanelItemsMultipleLayout.createSequentialGroup()
-                        .addComponent(jTextFieldItemToAddMultiple, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jTextFieldItemToAddMultiple, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxCategories, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelItemsMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonClearItemsCategoryMultiple, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonClearAllMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonDeleteItemMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonAddItemMultiple, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanelItemsMultipleLayout.setVerticalGroup(
             jPanelItemsMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -460,9 +452,9 @@ public class GodRandomUI extends javax.swing.JFrame {
             .addGroup(jPanelMultipleLayout.createSequentialGroup()
                 .addGroup(jPanelMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelMultipleLayout.createSequentialGroup()
-                        .addComponent(jPanelCategoryMultiple, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanelCategoryMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanelItemsMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanelItemsMultiple, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanelRandomSelectionMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -473,8 +465,8 @@ public class GodRandomUI extends javax.swing.JFrame {
                     .addComponent(jPanelCategoryMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelItemsMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelRandomSelectionMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanelRandomSelectionMultiple, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         jTabbedPaneGodRandom.addTab("Multiple", jPanelMultiple);
@@ -483,11 +475,11 @@ public class GodRandomUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPaneGodRandom)
+            .addComponent(jTabbedPaneGodRandom, javax.swing.GroupLayout.DEFAULT_SIZE, 767, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPaneGodRandom)
+            .addComponent(jTabbedPaneGodRandom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -589,7 +581,13 @@ public class GodRandomUI extends javax.swing.JFrame {
         jListCategoriesOrder.setListData(categoriesSorted);
         
         String[] finalList = selectRandomly(categoriesSorted, false);
-        jListOfItemsSelectedMultiple.setListData(finalList);
+        if (finalList != null) {
+            jListOfItemsSelectedMultiple.setListData(finalList);
+        }
+        else {
+            jListCategoriesOrder.setListData(new String[0]);
+            jListOfItemsSelectedMultiple.setListData(new String[0]);
+        }
     }//GEN-LAST:event_jButtonStartMultipleActionPerformed
     
     private void addItems(javax.swing.JTextField component, DefaultListModel model) {
@@ -660,6 +658,14 @@ public class GodRandomUI extends javax.swing.JFrame {
         String[] res = new String[sizeOfList];
         
         for (String category: list) {
+            if (multipleItems.get(category) == null) {
+                JOptionPane.showMessageDialog(new JFrame(), "A category was"
+                        + " found without items. Please, insert some items to make possible"
+                        + " to God Random select one of them.", "Empty category found", 
+                    JOptionPane.ERROR_MESSAGE);
+                
+                return null;
+            }
             String[] itemsOfCategory = Arrays.copyOf(multipleItems.get(category).toArray(), 
                 multipleItems.get(category).size(), String[].class);
             String aux = selectRandomly(itemsOfCategory, true)[0];
