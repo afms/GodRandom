@@ -106,7 +106,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="212" max="32767" attributes="0"/>
+                          <EmptySpace pref="279" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -255,16 +255,16 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jPanelRandomSelectionMultiple" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="jPanelCategoryMultiple" min="-2" pref="331" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jPanelItemsMultiple" min="-2" pref="335" max="-2" attributes="0"/>
+                              <Component id="jPanelItemsMultiple" max="32767" attributes="0"/>
                           </Group>
+                          <Component id="jPanelRandomSelectionMultiple" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="7" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -416,14 +416,14 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jButtonStartMultiple" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane1" max="32767" attributes="0"/>
-                              <Component id="jLabelCategoriesOrder" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jScrollPaneResultsMultiple" pref="294" max="32767" attributes="0"/>
+                              <Component id="jLabelCategoriesOrder" max="32767" attributes="0"/>
+                              <Component id="jScrollPane1" pref="315" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabelItemsSelectedMultiple" max="32767" attributes="0"/>
+                              <Component id="jScrollPaneResultsMultiple" pref="320" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -546,23 +546,28 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPaneItemsMultiple" alignment="0" pref="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="jTextFieldItemToAddMultiple" min="-2" pref="230" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jComboBoxCategories" max="32767" attributes="0"/>
+                                      <Component id="jScrollPaneItemsMultiple" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jButtonClearItemsCategoryMultiple" min="-2" pref="115" max="-2" attributes="0"/>
+                                      <Component id="jButtonClearAllMultiple" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jButtonDeleteItemMultiple" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jButtonAddItemMultiple" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jComboBoxCategories" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jTextFieldItemToAddMultiple" min="-2" pref="230" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jButtonAddItemMultiple" max="32767" attributes="0"/>
-                              <Component id="jButtonDeleteItemMultiple" max="32767" attributes="0"/>
-                              <Component id="jButtonClearItemsMultiple" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -578,10 +583,11 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   <Component id="jButtonDeleteItemMultiple" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButtonClearItemsMultiple" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButtonClearItemsCategoryMultiple" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="jButtonClearAllMultiple" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jScrollPaneItemsMultiple" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -634,13 +640,20 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Delete"/>
                     <Property name="toolTipText" type="java.lang.String" value="Removes the item selected from the list."/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDeleteItemMultipleActionPerformed"/>
+                  </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButtonClearItemsMultiple">
+                <Component class="javax.swing.JButton" name="jButtonClearAllMultiple">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Clear"/>
+                    <Property name="text" type="java.lang.String" value="Clear all"/>
                     <Property name="toolTipText" type="java.lang.String" value="Removes all items from the list."/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonClearAllMultipleActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBoxCategories">
                   <Properties>
@@ -656,6 +669,16 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButtonClearItemsCategoryMultiple">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Clear category"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Removes all items associated with the selected category."/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonClearItemsCategoryMultipleActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

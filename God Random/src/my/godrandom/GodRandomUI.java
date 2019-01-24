@@ -72,8 +72,9 @@ public class GodRandomUI extends javax.swing.JFrame {
         jScrollPaneItemsMultiple = new javax.swing.JScrollPane();
         jListOfItemsMultiple = new javax.swing.JList<>();
         jButtonDeleteItemMultiple = new javax.swing.JButton();
-        jButtonClearItemsMultiple = new javax.swing.JButton();
+        jButtonClearAllMultiple = new javax.swing.JButton();
         jComboBoxCategories = new javax.swing.JComboBox<>();
+        jButtonClearItemsCategoryMultiple = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("God Random");
@@ -134,7 +135,7 @@ public class GodRandomUI extends javax.swing.JFrame {
                         .addGroup(jPanelAddingItemsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButtonClearSimple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButtonDeleteSimple, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))))
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addContainerGap(279, Short.MAX_VALUE))
         );
         jPanelAddingItemsLayout.setVerticalGroup(
             jPanelAddingItemsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -312,13 +313,13 @@ public class GodRandomUI extends javax.swing.JFrame {
             .addGroup(jPanelRandomSelectionMultipleLayout.createSequentialGroup()
                 .addComponent(jButtonStartMultiple)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelRandomSelectionMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jLabelCategoriesOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
                 .addGroup(jPanelRandomSelectionMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPaneResultsMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
-                    .addComponent(jLabelItemsSelectedMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabelCategoriesOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelRandomSelectionMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelItemsSelectedMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneResultsMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelRandomSelectionMultipleLayout.setVerticalGroup(
@@ -365,9 +366,20 @@ public class GodRandomUI extends javax.swing.JFrame {
 
         jButtonDeleteItemMultiple.setText("Delete");
         jButtonDeleteItemMultiple.setToolTipText("Removes the item selected from the list.");
+        jButtonDeleteItemMultiple.setEnabled(false);
+        jButtonDeleteItemMultiple.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteItemMultipleActionPerformed(evt);
+            }
+        });
 
-        jButtonClearItemsMultiple.setText("Clear");
-        jButtonClearItemsMultiple.setToolTipText("Removes all items from the list.");
+        jButtonClearAllMultiple.setText("Clear all");
+        jButtonClearAllMultiple.setToolTipText("Removes all items from the list.");
+        jButtonClearAllMultiple.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClearAllMultipleActionPerformed(evt);
+            }
+        });
 
         jComboBoxCategories.setMaximumRowCount(20);
         jComboBoxCategories.setModel(modelCombo = new DefaultComboBoxModel());
@@ -378,24 +390,36 @@ public class GodRandomUI extends javax.swing.JFrame {
             }
         });
 
+        jButtonClearItemsCategoryMultiple.setText("Clear category");
+        jButtonClearItemsCategoryMultiple.setToolTipText("Removes all items associated with the selected category.");
+        jButtonClearItemsCategoryMultiple.setEnabled(false);
+        jButtonClearItemsCategoryMultiple.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClearItemsCategoryMultipleActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelItemsMultipleLayout = new javax.swing.GroupLayout(jPanelItemsMultiple);
         jPanelItemsMultiple.setLayout(jPanelItemsMultipleLayout);
         jPanelItemsMultipleLayout.setHorizontalGroup(
             jPanelItemsMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelItemsMultipleLayout.createSequentialGroup()
+            .addGroup(jPanelItemsMultipleLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelItemsMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPaneItemsMultiple, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelItemsMultipleLayout.createSequentialGroup()
+                        .addGroup(jPanelItemsMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBoxCategories, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPaneItemsMultiple, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelItemsMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonClearItemsCategoryMultiple, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonClearAllMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonDeleteItemMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonAddItemMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(34, 34, 34))
                     .addGroup(jPanelItemsMultipleLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jTextFieldItemToAddMultiple, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jComboBoxCategories, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelItemsMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonAddItemMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonDeleteItemMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonClearItemsMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(62, 62, 62))
+                        .addComponent(jTextFieldItemToAddMultiple, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanelItemsMultipleLayout.setVerticalGroup(
             jPanelItemsMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -408,10 +432,11 @@ public class GodRandomUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelItemsMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelItemsMultipleLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButtonDeleteItemMultiple)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonClearItemsMultiple))
+                        .addComponent(jButtonClearItemsCategoryMultiple)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonClearAllMultiple))
                     .addComponent(jScrollPaneItemsMultiple, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
 
@@ -420,13 +445,13 @@ public class GodRandomUI extends javax.swing.JFrame {
         jPanelMultipleLayout.setHorizontalGroup(
             jPanelMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMultipleLayout.createSequentialGroup()
-                .addGroup(jPanelMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanelRandomSelectionMultiple, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanelMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelMultipleLayout.createSequentialGroup()
                         .addComponent(jPanelCategoryMultiple, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanelItemsMultiple, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(7, Short.MAX_VALUE))
+                        .addComponent(jPanelItemsMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanelRandomSelectionMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanelMultipleLayout.setVerticalGroup(
             jPanelMultipleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -496,6 +521,8 @@ public class GodRandomUI extends javax.swing.JFrame {
     private void jComboBoxCategoriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCategoriesActionPerformed
         if (jComboBoxCategories.getSelectedIndex() != -1) {
             jButtonAddItemMultiple.setEnabled(true);
+            jButtonDeleteItemMultiple.setEnabled(true);
+            jButtonClearItemsCategoryMultiple.setEnabled(true);
             
             if (!multipleItems.isEmpty()) {
                 modelMultipleItem.removeAllElements();
@@ -525,6 +552,20 @@ public class GodRandomUI extends javax.swing.JFrame {
     private void jButtonAddItemMultipleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddItemMultipleActionPerformed
         addItems(jTextFieldItemToAddMultiple, modelMultipleItem);
     }//GEN-LAST:event_jButtonAddItemMultipleActionPerformed
+
+    private void jButtonDeleteItemMultipleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteItemMultipleActionPerformed
+        removeItems(jListOfItemsMultiple, modelMultipleItem);
+    }//GEN-LAST:event_jButtonDeleteItemMultipleActionPerformed
+
+    private void jButtonClearItemsCategoryMultipleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearItemsCategoryMultipleActionPerformed
+        multipleItems.remove((String) jComboBoxCategories.getSelectedItem());
+        modelMultipleItem.removeAllElements();
+    }//GEN-LAST:event_jButtonClearItemsCategoryMultipleActionPerformed
+
+    private void jButtonClearAllMultipleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearAllMultipleActionPerformed
+        multipleItems.clear();
+        modelMultipleItem.removeAllElements();
+    }//GEN-LAST:event_jButtonClearAllMultipleActionPerformed
     
     private void addItems(javax.swing.JTextField component, DefaultListModel model) {
         String item = component.getText();
@@ -562,7 +603,10 @@ public class GodRandomUI extends javax.swing.JFrame {
                     modelCombo.removeElementAt(positions[i]);
                 }
                 else if (list.getName().equals("jListOfItemsMultiple")) {
-                    multipleItems.remove((String) jComboBoxCategories.getSelectedItem(), positions[i]);
+                    ArrayList<String> newValues = new ArrayList<>();
+                    newValues.addAll(multipleItems.get((String) jComboBoxCategories.getSelectedItem()));
+                    newValues.remove(positions[i]);
+                    multipleItems.replace((String) jComboBoxCategories.getSelectedItem(), newValues);
                 }
             }
         }
@@ -634,8 +678,9 @@ public class GodRandomUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAddCategory;
     private javax.swing.JButton jButtonAddItem;
     private javax.swing.JButton jButtonAddItemMultiple;
+    private javax.swing.JButton jButtonClearAllMultiple;
     private javax.swing.JButton jButtonClearCategories;
-    private javax.swing.JButton jButtonClearItemsMultiple;
+    private javax.swing.JButton jButtonClearItemsCategoryMultiple;
     private javax.swing.JButton jButtonClearSimple;
     private javax.swing.JButton jButtonDeleteCategory;
     private javax.swing.JButton jButtonDeleteItemMultiple;
