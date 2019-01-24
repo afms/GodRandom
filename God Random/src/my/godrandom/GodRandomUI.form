@@ -136,6 +136,7 @@
                 <Component class="javax.swing.JTextField" name="jTextFieldItemToAdd">
                   <Properties>
                     <Property name="toolTipText" type="java.lang.String" value="Write the item here and press the &quot;Add item&quot; button to add this item to the list of items."/>
+                    <Property name="name" type="java.lang.String" value="jTextFieldItemToAdd" noResource="true"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldItemToAddActionPerformed"/>
@@ -145,6 +146,7 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Add"/>
                     <Property name="toolTipText" type="java.lang.String" value="Adds the item to the list of items."/>
+                    <Property name="name" type="java.lang.String" value="" noResource="true"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddItemActionPerformed"/>
@@ -162,6 +164,7 @@
                         <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                           <Connection code="modelSimple = new DefaultListModel()" type="code"/>
                         </Property>
+                        <Property name="name" type="java.lang.String" value="jListOfItemsSimple" noResource="true"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -436,16 +439,18 @@
                               <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jButtonStartMultiple" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabelCategoriesOrder" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabelItemsSelectedMultiple" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jScrollPaneResultsMultiple" pref="82" max="32767" attributes="0"/>
-                                      <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jButtonStartMultiple" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jScrollPaneResultsMultiple" pref="82" max="32767" attributes="0"/>
+                                          <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
@@ -460,6 +465,9 @@
                     <Property name="text" type="java.lang.String" value="Start"/>
                     <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;For multiple items selection the run of God Random  is split in two parts:&#xa;    &lt;ul&gt;&#xa;        &lt;li&gt;the first one serves to obtain the order of the categories;&lt;/li&gt;&#xa;        &lt;li&gt;the second part will select (randomly) an item from every category,&lt;br&gt;respecting the order obtained from the previous running.&lt;/li&gt;&#xa;    &lt;/ul&gt;&#xa;&lt;/html&gt;"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonStartMultipleActionPerformed"/>
+                  </Events>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPaneResultsMultiple">
                   <AuxValues>
