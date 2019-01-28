@@ -20,7 +20,7 @@ The motivation behind this app was just for personal purposes. The idea came fro
 
 ## Implementation
 
-The app was implemented in Java. The front-end was made using the widget toolkit Swing and the back-end is just the events handlers and the generation of the random selection, which is made by calling the class **java.util.Random**.
+The app was implemented in Java. The front-end was made using the *widget toolkit* Swing and the back-end is just the events handlers and the generation of the random selection, which is made by calling the class **java.util.Random**.
 
 
 
@@ -38,7 +38,7 @@ Multiple mode requires the items to be organized into categories. The figure bel
 
 ![alt text](/images/multiple_input_example.png "Example of an input to the multiple mode")
 
-The way this mode works it's basically run the Random into every category. Our idea was every participant choose a game of every category to build a list of games in each category and posteriorly the **God Random** pick a game of every category. But before that, to create the order of when we play each game, the list of categories is shuffled, using the method *shuffle()* from the class **java.util.Collections**. You can see an example of output in the figure below.
+This mode works by randomly selecting a game from each category. First, every participant choose a game to put into every category. This builds a list of games in each category. Posteriorly the **God Random** pick a game of every category. But before that, the list of categories is shuffled, to create the order of when we play each game, using the method *shuffle()* from the class **java.util.Collections**. You can see an example of output in the figure below.
 
 ![alt text](/images/multiple_example.png "Example of the use of the multiple mode")
 
